@@ -21,7 +21,7 @@ export function SiteNav() {
     <header className="fixed left-0 right-0 top-0 z-50 px-3 py-3 sm:px-5">
       <nav className="mx-auto flex max-w-6xl items-center justify-between rounded-lg border border-grid-accent/15 bg-black/40 px-3 py-2 shadow-panel backdrop-blur-xl">
         <Link href="/" className="fire-text text-lg font-black tracking-wide">
-          midora
+          TEST DEPLOY
         </Link>
         <div className="flex max-w-[72vw] gap-1 overflow-x-auto">
           {links.map((link) => {

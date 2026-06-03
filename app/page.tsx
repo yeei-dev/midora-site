@@ -35,7 +35,7 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="fire-text text-center text-7xl font-black italic leading-none sm:text-8xl lg:text-9xl"
           >
-            midora
+            TEST DEPLOY
           </motion.h1>
         </div>
       </section>

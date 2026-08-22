@@ -5,22 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        grid: {
-          bg: "#050403",
-          card: "#11100F",
-          panel: "#18120D",
-          primary: "#FF7A18",
-          accent: "#FFB45F",
-          text: "#FFF3E4",
-        },
-      },
-      boxShadow: {
-        neon: "0 0 32px rgba(255, 122, 24, 0.2), 0 0 64px rgba(255, 180, 95, 0.12)",
-        panel: "0 24px 80px rgba(0, 0, 0, 0.35)",
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        line: "var(--line)",
+        "line-strong": "var(--line-strong)",
+        text: "var(--text)",
+        muted: "var(--muted)",
+        faint: "var(--faint)",
       },
       fontFamily: {
-        display: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "SFMono-Regular", "Consolas", "monospace"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
+      maxWidth: {
+        page: "56rem",
       },
     },
   },

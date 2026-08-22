@@ -1,43 +1,24 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Bot, FolderKanban, Home, Link2, Mail, Newspaper } from "lucide-react";
 
 const links = [
-  { href: "/", label: "Midora", icon: Home },
-  { href: "/projects", label: "Projects", icon: FolderKanban },
-  { href: "/bots", label: "Bots", icon: Bot },
-  { href: "/resources", label: "Links", icon: Link2 },
-  { href: "/contact", label: "Contact", icon: Mail },
-  { href: "/#news", label: "News", icon: Newspaper },
+  { href: "/#bots", label: "Боты" },
+  { href: "/#projects", label: "Проекты" },
+  { href: "/#links", label: "Связь" },
 ];
 
 export function SiteNav() {
-  const pathname = usePathname();
-
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 px-3 py-3 sm:px-5">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-md border border-white/10 bg-[#070914]/72 px-3 py-2 shadow-panel backdrop-blur-xl">
-        <Link href="/" className="text-lg font-black tracking-wide text-white">
+    <header className="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur-md">
+      <nav className="mx-auto flex max-w-page items-center justify-between gap-6 px-6 py-4">
+        <Link href="/" className="shrink-0 text-[0.9375rem] font-medium tracking-tight">
           Midora
         </Link>
-        <div className="flex max-w-[74vw] gap-1 overflow-x-auto">
-          {links.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`flex shrink-0 items-center gap-2 rounded px-3 py-2 text-sm font-bold transition ${
-                  active ? "bg-white text-[#080a14]" : "text-[#b9c3d8] hover:bg-white/[0.07] hover:text-white"
-                }`}
-              >
-                <link.icon size={16} />
-                <span className="hidden sm:inline">{link.label}</span>
-              </Link>
-            );
-          })}
+        <div className="flex items-center gap-5 overflow-x-auto text-sm">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className="shrink-0 text-muted transition-colors hover:text-text">
+              {link.label}
+            </Link>
+          ))}
         </div>
       </nav>
     </header>

@@ -10,3 +10,4 @@ out/
 # локальные копии-дубли, в репозиторий не идут
 /midora-site/
 /MIDORA_READY_PACKAGE/
+*.tsbuildinfo

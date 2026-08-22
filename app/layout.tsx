@@ -1,25 +1,41 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { profile } from "@/data/site";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin", "cyrillic"],
+  display: "swap",
+  variable: "--font-sans",
+});
+
 export const metadata: Metadata = {
-  title: "Midora | Digital Hub",
-  description: "Official Midora hub with Discord bots, resources, news, GitHub, Telegram and contact routes.",
-  keywords: ["Midora", "midora.ceo", "Discord bots", "ASIXEZ", "SUZUKI BOT", "midora AI"],
+  metadataBase: new URL("https://midora.uk"),
+  title: {
+    default: "Midora",
+    template: "%s — Midora",
+  },
+  description: profile.intro,
+  keywords: ["Midora", "Discord боты", "разработка ботов", "ASIXEZ", "SUZUKI BOT", "midora AI"],
   openGraph: {
-    title: "Midora | Digital Hub",
-    description: "Official routes, bots, news and contact links for Midora.",
+    title: "Midora",
+    description: profile.intro,
+    url: "https://midora.uk",
+    siteName: "Midora",
+    locale: "ru_RU",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Midora",
+    description: profile.intro,
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ru">
-      <body className="font-display antialiased">{children}</body>
+    <html lang="ru" className={inter.variable}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

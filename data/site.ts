@@ -2,8 +2,6 @@ export type ResourceLink = {
   label: string;
   href: string;
   note: string;
-  icon: "discord" | "telegram" | "mail" | "github" | "bot" | "server" | "sparkles";
-  featured?: boolean;
 };
 
 export type BotInfo = {
@@ -13,54 +11,46 @@ export type BotInfo = {
   tag: string;
 };
 
-export type NewsItem = {
-  id: string;
-  title: string;
-  body: string;
-  date: string;
-  accent: string;
+export type Project = {
+  name: string;
+  description: string;
+  href: string;
+  meta: string;
 };
 
 export const profile = {
   name: "Midora",
-  handle: "midora.ceo",
   email: "support@midora.uk",
-  tagline: "Discord bots, community systems and sharp digital spaces.",
+  tagline: "Discord-боты, комьюнити-системы и аккуратные цифровые пространства.",
+  intro:
+    "Делаю ботов для Discord под задачи сервера: роли, тикеты, модерация, автоматизация. Здесь собраны боты, проекты и способы связаться.",
 };
 
 export const resources: ResourceLink[] = [
   {
     label: "ASIXEZ FAMQ",
     href: "https://discord.gg/asixez",
-    note: "Главное Discord-комьюнити Midora.",
-    icon: "discord",
-    featured: true,
+    note: "Главное Discord-комьюнити.",
   },
   {
     label: "Telegram",
     href: "https://t.me/neshpana",
-    note: "Быстрая связь и личные обновления.",
-    icon: "telegram",
-    featured: true,
+    note: "Быстрая связь и обновления.",
   },
   {
-    label: "Заказы ботов",
+    label: "Почта",
     href: "mailto:support@midora.uk",
-    note: "Почта для заказов, вопросов и предложений.",
-    icon: "mail",
-    featured: true,
+    note: "Заказы, вопросы, предложения.",
   },
   {
     label: "GitHub",
     href: "https://github.com/yeei-dev",
-    note: "Код, проекты и dev-активность.",
-    icon: "github",
+    note: "Код и dev-активность.",
   },
   {
-    label: "Лучшие хостинги",
+    label: "Хостинги",
     href: "https://discord.gg/diamondshop",
-    note: "Ресурс с хостингами для проектов и ботов.",
-    icon: "server",
+    note: "Подборка хостингов для проектов и ботов.",
   },
 ];
 
@@ -68,43 +58,40 @@ export const bots: BotInfo[] = [
   {
     name: "ASIXEZ BOT",
     href: "https://discord.com/oauth2/authorize?client_id=1494997487851798548",
-    description: "Бот для ASIXEZ FAMQ и рабочих Discord-сценариев.",
+    description: "Бот для ASIXEZ FAMQ и рабочих сценариев сервера.",
     tag: "Community",
   },
   {
     name: "SUZUKI BOT",
     href: "https://discord.com/oauth2/authorize?client_id=1533415816555659285",
-    description: "Отдельный Discord-бот для автоматизации и серверных задач.",
+    description: "Автоматизация и серверные задачи.",
     tag: "Utility",
   },
   {
     name: "midora AI",
-    href: "https://discord.com/oauth2/authorize?client_id=1533768062564696136&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fmidora.uk&integration_type=0&scope=bot+applications.commands",
-    description: "AI-бот Midora для Discord с командами и расширенными правами.",
+    href: "https://discord.com/oauth2/authorize?client_id=1533768062564696136&scope=bot+applications.commands",
+    description: "AI-бот с командами для общения и помощи на сервере.",
     tag: "AI",
   },
 ];
 
-export const defaultNews: NewsItem[] = [
+export const projects: Project[] = [
   {
-    id: "welcome",
-    title: "Midora обновляет сайт",
-    body: "Главная страница превращается в личный hub: ресурсы, боты, новости и быстрые переходы собраны в одном месте.",
-    date: "03.08.2026",
-    accent: "cyan",
+    name: "Разработка ботов",
+    description: "Боты под задачи сервера: команды, роли, тикеты, модерация, интеграции.",
+    href: "mailto:support@midora.uk",
+    meta: "На заказ",
   },
   {
-    id: "bots",
-    title: "Discord-направление в фокусе",
-    body: "ASIXEZ BOT, SUZUKI BOT и midora AI вынесены в отдельный блок, чтобы их было проще добавлять на серверы.",
-    date: "03.08.2026",
-    accent: "rose",
+    name: "ASIXEZ FAMQ",
+    description: "Комьюнити с собственными ботами и внутренними инструментами.",
+    href: "https://discord.gg/asixez",
+    meta: "Комьюнити",
   },
-];
-
-export const photoSlots = [
-  "Midora portrait",
-  "Discord community",
-  "Bot command center",
-  "Project workspace",
+  {
+    name: "Хостинги",
+    description: "Подборка площадок для запуска проектов и Discord-ботов.",
+    href: "https://discord.gg/diamondshop",
+    meta: "Ресурс",
+  },
 ];

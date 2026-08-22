@@ -1,46 +1,38 @@
-"use client";
-
-import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { Activity, CheckCircle2, RadioTower } from "lucide-react";
 import { PageFrame } from "@/components/page-frame";
-import { growthData, statusNodes } from "@/data/site";
+
+const statuses = [
+  ["midora.uk", "Online", "24 ms"],
+  ["ASIXEZ BOT", "Ready", "Discord route"],
+  ["SUZUKI BOT", "Ready", "Discord route"],
+  ["midora AI", "Ready", "Admin permissions"],
+];
 
 export default function StatsPage() {
   return (
-    <PageFrame eyebrow="system analytics" title="Statistics">
-      <div className="grid gap-4 xl:grid-cols-[1.25fr_.75fr]">
-        <section className="ember-panel rounded-lg p-5">
-          <h2 className="mb-5 text-2xl font-black">Growth</h2>
-          <div className="h-[360px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={growthData}>
-                <defs>
-                  <linearGradient id="flameUsers" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="5%" stopColor="#FF7A18" stopOpacity={0.55} />
-                    <stop offset="95%" stopColor="#FF7A18" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid stroke="rgba(255,180,95,.12)" />
-                <XAxis dataKey="month" stroke="#a99684" />
-                <YAxis stroke="#a99684" />
-                <Tooltip contentStyle={{ background: "#11100F", border: "1px solid rgba(255,180,95,.2)", borderRadius: 8 }} />
-                <Area type="monotone" dataKey="users" stroke="#FFB45F" fill="url(#flameUsers)" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+    <PageFrame eyebrow="midora status" title="Статус">
+      <div className="grid gap-4 lg:grid-cols-[.8fr_1.2fr]">
+        <section className="glass-panel rounded-md p-6">
+          <RadioTower className="mb-5 text-cyan-200" size={34} />
+          <h2 className="text-3xl font-black">Midora online</h2>
+          <p className="mt-3 text-sm leading-6 text-[#aebbd3]">Быстрый статус основных направлений сайта и Discord-ботов.</p>
         </section>
-        <section className="ember-panel rounded-lg p-5">
-          <h2 className="mb-5 text-2xl font-black">System Status</h2>
-          <div className="space-y-3">
-            {statusNodes.map(([name, state, metric]) => (
-              <div key={name} className="flex items-center justify-between rounded border border-grid-accent/15 bg-black/20 p-4">
+        <section className="grid gap-3">
+          {statuses.map(([name, state, metric]) => (
+            <div key={name} className="glass-panel flex items-center justify-between rounded-md p-4">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="text-emerald-200" size={22} />
                 <div>
                   <div className="font-black">{name}</div>
-                  <div className="text-xs text-[#8f715b]">{metric}</div>
+                  <div className="text-xs text-[#7d8ba6]">{metric}</div>
                 </div>
-                <span className="rounded bg-emerald-400/10 px-2 py-1 text-xs font-black text-emerald-300">{state}</span>
               </div>
-            ))}
-          </div>
+              <span className="inline-flex items-center gap-2 rounded bg-emerald-300/10 px-3 py-1 text-xs font-black text-emerald-200">
+                <Activity size={14} />
+                {state}
+              </span>
+            </div>
+          ))}
         </section>
       </div>
     </PageFrame>

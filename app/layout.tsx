@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TEST DEPLOY",
-  description: "Personal command center for Midora: developer profile, Discord bots, projects, resources, and contacts.",
-  keywords: ["Midora", "Discord bot developer", "backend engineer", "automation", "Majestic RP"],
+  title: "Midora | Digital Hub",
+  description: "Official Midora hub with Discord bots, resources, news, GitHub, Telegram and contact routes.",
+  keywords: ["Midora", "midora.ceo", "Discord bots", "ASIXEZ", "SUZUKI BOT", "midora AI"],
   openGraph: {
-    title: "TEST DEPLOY",
-    description: "A futuristic command center portfolio for Midora.",
+    title: "Midora | Digital Hub",
+    description: "Official routes, bots, news and contact links for Midora.",
     type: "website",
   },
 };

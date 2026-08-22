@@ -4,15 +4,12 @@
 
 :root {
   color-scheme: dark;
-  background: #050403;
-  --bg: #050403;
-  --panel: #11100f;
-  --panel-strong: #18120d;
-  --ember: #ff7a18;
-  --flame: #ffb45f;
-  --gold: #ffd08a;
-  --muted: #a99684;
-  --text: #fff3e4;
+  background: #070914;
+  --ink: #070914;
+  --panel: rgba(13, 18, 34, 0.78);
+  --line: rgba(255, 255, 255, 0.12);
+  --muted: #a9b5ce;
+  --text: #f8fbff;
 }
 
 * {
@@ -28,10 +25,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 122, 24, 0.2), transparent 28%),
-    radial-gradient(circle at 16% 70%, rgba(255, 180, 95, 0.12), transparent 24%),
-    radial-gradient(circle at 84% 72%, rgba(180, 64, 10, 0.16), transparent 28%),
-    #050403;
+    radial-gradient(circle at 18% 18%, rgba(34, 211, 238, 0.18), transparent 26%),
+    radial-gradient(circle at 86% 12%, rgba(244, 63, 94, 0.16), transparent 24%),
+    radial-gradient(circle at 50% 85%, rgba(74, 222, 128, 0.12), transparent 30%),
+    linear-gradient(135deg, #070914 0%, #121827 42%, #090b12 100%);
   color: var(--text);
 }
 
@@ -41,70 +38,54 @@ body::before {
   z-index: -2;
   content: "";
   background-image:
-    linear-gradient(rgba(255, 122, 24, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 180, 95, 0.045) 1px, transparent 1px);
-  background-size: 72px 72px;
-  animation: grid-drift 36s linear infinite;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.2));
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.18));
 }
 
-body::after {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  background-image:
-    radial-gradient(circle, rgba(255, 180, 95, 0.34) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(255, 122, 24, 0.3) 1px, transparent 1.5px);
-  background-position: 0 0, 36px 24px;
-  background-size: 120px 120px, 170px 170px;
-  opacity: 0.24;
-  animation: particle-float 20s ease-in-out infinite alternate;
-}
-
-@keyframes grid-drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(58px, 58px, 0);
-  }
-}
-
-@keyframes particle-float {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-36px);
-  }
+a {
+  text-decoration: none;
 }
 
 @layer components {
-  .ember-panel {
-    border: 1px solid rgba(255, 180, 95, 0.16);
-    background: linear-gradient(145deg, rgba(22, 17, 13, 0.94), rgba(7, 5, 4, 0.84));
-    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55), 0 0 44px rgba(255, 122, 24, 0.08);
+  .glass-panel {
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, rgba(12, 18, 35, 0.86), rgba(7, 9, 20, 0.72));
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
     backdrop-filter: blur(18px);
   }
 
-  .ember-line {
-    background: linear-gradient(90deg, transparent, rgba(255, 122, 24, 0.95), rgba(255, 208, 138, 0.9), transparent);
+  .photo-slot {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+      radial-gradient(circle at 22% 24%, rgba(34, 211, 238, 0.5), transparent 23%),
+      radial-gradient(circle at 78% 34%, rgba(244, 63, 94, 0.44), transparent 22%),
+      radial-gradient(circle at 44% 78%, rgba(74, 222, 128, 0.28), transparent 26%),
+      linear-gradient(135deg, #141a2b, #080a13 72%);
   }
 
-  .fire-text {
-    color: #fff3e4;
-    text-shadow:
-      0 0 16px rgba(255, 180, 95, 0.8),
-      0 0 44px rgba(255, 122, 24, 0.65),
-      0 0 88px rgba(255, 83, 12, 0.35);
+  .photo-slot::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background:
+      linear-gradient(120deg, transparent 0 34%, rgba(255, 255, 255, 0.16) 35%, transparent 48%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.72), transparent 58%);
+    transform: translateX(-18%);
   }
 
-  .ember-ring {
-    box-shadow:
-      0 0 0 1px rgba(255, 180, 95, 0.2),
-      0 0 42px rgba(255, 122, 24, 0.35),
-      inset 0 0 42px rgba(255, 122, 24, 0.08);
+  .lift-card {
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+
+  .lift-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(34, 211, 238, 0.42);
   }
 }

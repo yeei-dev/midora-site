@@ -1,9 +1,12 @@
+node_modules/
 .next/
 out/
-node_modules/
-.env*
 .DS_Store
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+*.zip
+.env
+.env.local
+.vercel/
+
+# локальные копии-дубли, в репозиторий не идут
+/midora-site/
+/MIDORA_READY_PACKAGE/

@@ -1,33 +1,26 @@
-# Midora Cyber Grid Dashboard
+# midora.uk
 
-Premium futuristic personal portfolio for Midora: a command-center style interface for projects, Discord bots, resources, references, statistics, and contact links.
+Личный хаб Midora: Discord-боты, ресурсы, проекты, новости и контакты.
 
-## Stack
+Стек: Next.js 15 (App Router) + React 19 + Tailwind + framer-motion.
+Сборка статическая (`output: "export"` в `next.config.ts`).
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Recharts
-- Lucide Icons
+## Команды
 
-## Run
-
-```bash
+```
 npm install
-npm run dev
+npm run dev     # локальная разработка, http://localhost:3000
+npm run build   # статическая сборка в ./out
 ```
 
-Then open `http://localhost:3000`.
+## Структура
 
-## Customize
+- `app/` — страницы (главная, /bots, /projects, /resources, /stats, /contact, /admpan)
+- `components/` — общие компоненты (навигация, рамка страницы)
+- `data/site.ts` — контент: профиль, ссылки, список ботов, дефолтные новости
+- `lib/news-store.ts` — хранилище новостей (сейчас localStorage браузера)
 
-Replace placeholder links and numbers in `app/page.tsx`:
+## Секреты
 
-- `projects`
-- `bots`
-- `resources`
-- `references`
-- `chartData`
-
-Future production integrations can replace those arrays with Discord Presence, GitHub activity, and a protected admin backend.
+Никаких токенов и паролей в репозитории. Токены Discord-ботов хранятся
+только в переменных окружения на хостинге бота.

@@ -4,8 +4,23 @@
     {
       "name": "midora-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3000
+    },
+    {
+      "name": "midora-out",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "serve",
+        "out",
+        "-l",
+        "4123"
+      ],
+      "port": 4123
     }
   ]
 }

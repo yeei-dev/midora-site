@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { BootSequence } from "@/components/boot-sequence";
 import { profile } from "@/data/site";
 import "./globals.css";
 
@@ -9,6 +10,10 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#f7fafd",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://midora.uk"),
   title: {
@@ -16,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s — Midora",
   },
   description: profile.intro,
-  keywords: ["Midora", "Discord боты", "разработка ботов", "ASIXEZ", "SUZUKI BOT", "midora AI"],
+  keywords: ["Midora", "ASIXEZ", "Discord боты", "разработка ботов", "SUZUKI BOT", "midora AI"],
   openGraph: {
     title: "Midora",
     description: profile.intro,
@@ -24,18 +29,23 @@ export const metadata: Metadata = {
     siteName: "Midora",
     locale: "ru_RU",
     type: "website",
+    images: [{ url: "/banner.jpg", width: 1600, height: 900, alt: "ASIXEZ" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Midora",
     description: profile.intro,
+    images: ["/banner.jpg"],
   },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru" className={inter.variable}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <BootSequence />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,9 +1,3 @@
-export type ResourceLink = {
-  label: string;
-  href: string;
-  note: string;
-};
-
 export type BotInfo = {
   name: string;
   href: string;
@@ -18,41 +12,70 @@ export type Project = {
   meta: string;
 };
 
-export const profile = {
-  name: "Midora",
-  email: "support@midora.uk",
-  tagline: "Discord-боты, комьюнити-системы и аккуратные цифровые пространства.",
-  intro:
-    "Делаю ботов для Discord под задачи сервера: роли, тикеты, модерация, автоматизация. Здесь собраны боты, проекты и способы связаться.",
+export type Contact = {
+  label: string;
+  value: string;
+  note: string;
+  /** Без href значение копируется по клику — так работает Discord-тег. */
+  href?: string;
 };
 
-export const resources: ResourceLink[] = [
-  {
-    label: "ASIXEZ FAMQ",
-    href: "https://discord.gg/asixez",
-    note: "Главное Discord-комьюнити.",
-  },
+export const profile = {
+  name: "Midora",
+  email: "contact@midora.uk",
+  tagline: "Discord-боты, комьюнити-системы и аккуратные цифровые пространства.",
+  intro:
+    "Делаю ботов для Discord под задачи сервера: роли, тикеты, модерация, автоматизация. Здесь боты, проекты и все способы связаться.",
+};
+
+/** Личная связь — почта, Telegram, Discord. */
+export const contacts: Contact[] = [
   {
     label: "Telegram",
-    href: "https://t.me/neshpana",
-    note: "Быстрая связь и обновления.",
+    value: "@cntmidoraa",
+    href: "https://t.me/cntmidoraa",
+    note: "Рабочая связь, заказы и вопросы.",
   },
   {
     label: "Почта",
-    href: "mailto:support@midora.uk",
-    note: "Заказы, вопросы, предложения.",
+    value: "contact@midora.uk",
+    href: "mailto:contact@midora.uk",
+    note: "Для заказов и деловых предложений.",
+  },
+  {
+    label: "Discord",
+    value: "@midoraaaa",
+    note: "Личный тег — нажми, чтобы скопировать.",
+  },
+];
+
+/** Комьюнити и площадки ASIXEZ. */
+export const community: Contact[] = [
+  {
+    label: "Заявки в семью",
+    value: "discord.gg/asixez",
+    href: "https://discord.gg/asixez",
+    note: "Вступление в ASIXEZ FAMQ.",
+  },
+  {
+    label: "Telegram-канал",
+    value: "t.me/asixez",
+    href: "https://t.me/asixez",
+    note: "Новости и анонсы семьи.",
   },
   {
     label: "GitHub",
+    value: "yeei-dev",
     href: "https://github.com/yeei-dev",
     note: "Код и dev-активность.",
   },
-  {
-    label: "Хостинги",
-    href: "https://discord.gg/diamondshop",
-    note: "Подборка хостингов для проектов и ботов.",
-  },
 ];
+
+export const youtube = {
+  handle: "@asixezzz",
+  href: "https://www.youtube.com/@asixezzz",
+  note: "Ролики, записи с игр и всё, что снимается для ASIXEZ.",
+};
 
 export const bots: BotInfo[] = [
   {
@@ -79,7 +102,7 @@ export const projects: Project[] = [
   {
     name: "Разработка ботов",
     description: "Боты под задачи сервера: команды, роли, тикеты, модерация, интеграции.",
-    href: "mailto:support@midora.uk",
+    href: "mailto:contact@midora.uk",
     meta: "На заказ",
   },
   {

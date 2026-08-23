@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
-export function LinkRow({
+export function LinkCard({
   href,
   title,
   note,
@@ -18,16 +18,16 @@ export function LinkRow({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noreferrer" : undefined}
-      className="row row-link group"
+      className="card flex flex-col gap-3 p-5"
     >
-      <div className="min-w-0 flex-1">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <h3 className="text-base font-medium tracking-tight">{title}</h3>
-          {meta && <span className="label">{meta}</span>}
-        </div>
+      <div className="flex items-start justify-between gap-3">
+        {meta ? <span className="chip">{meta}</span> : <span />}
+        <ArrowUpRight className="card-arrow" size={17} aria-hidden />
+      </div>
+      <div>
+        <h3 className="text-base font-semibold tracking-tight">{title}</h3>
         <p className="mt-1.5 text-sm leading-6 text-muted">{note}</p>
       </div>
-      <ArrowUpRight className="row-arrow" size={16} aria-hidden />
     </a>
   );
 }

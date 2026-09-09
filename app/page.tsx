@@ -85,7 +85,7 @@ export default function Home() {
             </span>
             <span className="min-w-0 flex-1">
               <span className="block text-base font-semibold tracking-tight">Боты Midora</span>
-              <span className="mt-1 block text-sm text-muted">Три бота для Discord — добавить на свой сервер.</span>
+              <span className="mt-1 block text-sm text-muted">Боты для Discord и Telegram — добавить себе.</span>
             </span>
             <ArrowUpRight className="card-arrow" size={17} aria-hidden />
           </Link>

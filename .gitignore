@@ -11,3 +11,8 @@ out/
 /midora-site/
 /MIDORA_READY_PACKAGE/
 *.tsbuildinfo
+
+# файлы с токенами не должны попадать в репозиторий
+toke.md
+token*.md
+*.token

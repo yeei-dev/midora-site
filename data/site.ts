@@ -5,6 +5,14 @@ export type BotInfo = {
   tag: string;
 };
 
+export type TelegramBot = {
+  name: string;
+  handle: string;
+  href: string;
+  description: string;
+  cover: string;
+};
+
 export type Project = {
   name: string;
   description: string;
@@ -95,6 +103,18 @@ export const bots: BotInfo[] = [
     href: "https://discord.com/oauth2/authorize?client_id=1533768062564696136&scope=bot+applications.commands",
     description: "AI-бот с командами для общения и помощи на сервере.",
     tag: "AI",
+  },
+];
+
+/** Боты для Telegram. */
+export const telegramBots: TelegramBot[] = [
+  {
+    name: "MIDORAPLY",
+    handle: "@midoraply_bot",
+    href: "https://t.me/midoraply_bot",
+    description:
+      "Развлекательный бот Midora для Telegram: игры, розыгрыши и активности прямо в чате. Работает и в личке, и в группах.",
+    cover: "/midoraply.jpg",
   },
 ];
 
